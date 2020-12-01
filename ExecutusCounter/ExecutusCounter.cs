@@ -7,28 +7,39 @@ namespace ExecutusCounter
 {
     public class ExecutusCounter
     {
-        private int counter;
+        private int _currentCount;
         private GameV2 _game;
-        public ExecutusCounter() { }
+        private ElementalCounterOverlay _overlay;
+
+        public ExecutusCounter(ElementalCounterOverlay overlay)
+        {
+            _overlay = overlay;
+        }
 
         internal void GameStart()
         {
-            counter = 0;
+            _currentCount = 0;
             _game = Hearthstone_Deck_Tracker.Core.Game;
             Log.Info("Game started");
+            _overlay.Show();
         }
 
         internal void PlayerPlayed(Card card)
         {
             if (card.Race != "Elemental") return;
 
-            counter++;
-            Log.Info($"Played {counter} elementals this turn so far!");
+            _currentCount++;
+            Log.Info($"Played {_currentCount} elementals this turn so far!");
         }
 
         public void ResetCounter(ActivePlayer obj)
         {
-            counter = 0;
+            _currentCount = 0;
+        }
+
+        public void InMenu()
+        {
+            _overlay.Hide();
         }
     }
 }
