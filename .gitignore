@@ -2,3 +2,4 @@
 *.cache
 ExecutusTracker/bin/*
 ExecutusTracker/obj/*
+*.user
