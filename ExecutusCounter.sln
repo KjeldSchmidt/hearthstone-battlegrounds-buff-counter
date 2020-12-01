@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecutusCounter", "ExecutusCounter\ExecutusCounter.csproj", "{05B18F1F-9F24-4565-9682-B6E5322FED09}"
 EndProject
 Global
@@ -12,5 +15,11 @@ Global
 		{05B18F1F-9F24-4565-9682-B6E5322FED09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05B18F1F-9F24-4565-9682-B6E5322FED09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05B18F1F-9F24-4565-9682-B6E5322FED09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4AA7E813-2728-4586-B65E-F682936CAF8F}
 	EndGlobalSection
 EndGlobal
