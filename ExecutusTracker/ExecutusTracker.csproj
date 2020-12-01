@@ -32,22 +32,27 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="HearthstoneDeckTracker, Version=1.13.16.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\HDT\Hearthstone-Deck-Tracker-master\Hearthstone Deck Tracker\bin\x86\Debug\HearthstoneDeckTracker.exe</HintPath>
+        </Reference>
+        <Reference Include="PresentationFramework" />
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ExecutusTracker.cs" />
+        <Compile Include="ExecutusCounter.cs" />
+        <Compile Include="ExecutusCounterPlugin.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">
-    </Target>
+    </Target> -->
     <Target Name="AfterBuild">
+        <Copy SourceFiles="$(OutputPath)\ExecutusTracker.dll" DestinationFolder="C:\Users\KjeldSchmidt\AppData\Roaming\HearthstoneDeckTracker\Plugins"></Copy>
     </Target>
-    -->
 
 </Project>
