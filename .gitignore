@@ -1,5 +1,5 @@
 .idea/*
 *.cache
-ExecutusTracker/bin/*
-ExecutusTracker/obj/*
+ExecutusCounter/bin/*
+ExecutusCounter/obj/*
 *.user
