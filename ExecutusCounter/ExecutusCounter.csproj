@@ -52,7 +52,7 @@
     <Target Name="BeforeBuild">
     </Target> -->
     <Target Name="AfterBuild">
-        <Copy SourceFiles="$(OutputPath)ExecutusCounter.dll" DestinationFolder="C:\Users\KjeldSchmidt\AppData\Roaming\HearthstoneDeckTracker\Plugins"></Copy>
+        <Copy SourceFiles="$(OutputPath)ExecutusCounter.dll" DestinationFolder="C:\Users\KjeldSchmidt\AppData\Roaming\HearthstoneDeckTracker\Plugins" />
     </Target>
 
 </Project>
