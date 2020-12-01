@@ -23,7 +23,7 @@ namespace ExecutusCounter
             if (card.Race != "Elemental") return;
 
             counter++;
-            Log.Info();
+            Log.Info($"Played {counter} elementals this turn so far!");
         }
 
         public void ResetCounter(ActivePlayer obj)

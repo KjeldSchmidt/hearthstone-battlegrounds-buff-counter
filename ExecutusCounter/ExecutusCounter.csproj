@@ -8,7 +8,7 @@
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>ExecutusTracker</RootNamespace>
-        <AssemblyName>ExecutusTracker</AssemblyName>
+        <AssemblyName>ExecutusCounter</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -52,7 +52,7 @@
     <Target Name="BeforeBuild">
     </Target> -->
     <Target Name="AfterBuild">
-        <Copy SourceFiles="$(OutputPath)\ExecutusTracker.dll" DestinationFolder="C:\Users\KjeldSchmidt\AppData\Roaming\HearthstoneDeckTracker\Plugins"></Copy>
+        <Copy SourceFiles="$(OutputPath)ExecutusCounter.dll" DestinationFolder="C:\Users\KjeldSchmidt\AppData\Roaming\HearthstoneDeckTracker\Plugins"></Copy>
     </Target>
 
 </Project>

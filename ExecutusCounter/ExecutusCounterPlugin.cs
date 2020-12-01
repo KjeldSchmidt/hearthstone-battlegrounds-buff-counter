@@ -12,7 +12,7 @@ namespace ExecutusCounter
             var counter = new ExecutusCounter();
             GameEvents.OnGameStart.Add(counter.GameStart);
             GameEvents.OnPlayerPlay.Add(counter.PlayerPlayed);
-            GameEvents.OnTurnStart.Add(counter.ResetCounter)
+            GameEvents.OnTurnStart.Add(counter.ResetCounter);
         }
 
         public void OnUnload()
@@ -36,7 +36,7 @@ namespace ExecutusCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.0.0.2");
+        public Version Version => new Version("0.0.0.3");
         public MenuItem MenuItem => null;
     }
 }
