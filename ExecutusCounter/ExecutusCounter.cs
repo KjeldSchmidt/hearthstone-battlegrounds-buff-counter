@@ -35,6 +35,7 @@ namespace ExecutusCounter
         public void ResetCounter(ActivePlayer obj)
         {
             _currentCount = 0;
+            _overlay.Update(_currentCount);
         }
 
         public void InMenu()
