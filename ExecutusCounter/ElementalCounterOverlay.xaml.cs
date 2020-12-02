@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ExecutusCounter
@@ -26,7 +27,7 @@ namespace ExecutusCounter
 
         public void Update(int count)
         {
-            ElementalCountLabel.Content = count;
+            ElementalCountLabel.Text = count.ToString();
         }
     }
 }

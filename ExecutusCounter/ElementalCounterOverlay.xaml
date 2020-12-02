@@ -7,15 +7,18 @@
              mc:Ignorable="d" 
              Height="100" Width="100">
     <UserControl.Resources>
-        <Style TargetType="Label">
+        <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="#3F3424"/>
             <Setter Property="FontFamily" Value="/HearthstoneDeckTracker;component/Resources/#Chunkfive"/>
             <Setter Property="FontSize" Value="30"/>
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="45"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="TextAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
     </UserControl.Resources>
     <Grid>
-            <Label Name="ElementalCountLabel">20</Label>
+        <Image Width="100" Source="Images/icon-executus.png"></Image>
+        <TextBlock Name="ElementalCountLabel">20</TextBlock>
     </Grid>
 </UserControl>

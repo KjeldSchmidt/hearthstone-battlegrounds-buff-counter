@@ -36,11 +36,11 @@ namespace ExecutusCounter
 
         public string Name => "Executus Elementals Counter";
         public string Description =>
-            "Adds a counter to show how many elementals you've played this turn if Majodormo Executus is in the tavern, your hand or on your board";
+            "Adds a counter to show how many elementals you've played this turn when Majodormo Executus is in the tavern, your hand or on your board";
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.1.1");
+        public Version Version => new Version("0.1.3");
         public MenuItem MenuItem => null;
     }
 }
