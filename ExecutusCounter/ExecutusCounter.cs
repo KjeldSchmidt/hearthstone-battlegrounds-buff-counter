@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Linq;
+using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Utility.Logging;
@@ -21,7 +23,6 @@ namespace ExecutusCounter
             _currentCount = 0;
             _game = Hearthstone_Deck_Tracker.Core.Game;
             Log.Info("Game started");
-            _overlay.Show();
         }
 
         internal void PlayerPlayed(Card card)
@@ -30,6 +31,20 @@ namespace ExecutusCounter
 
             _currentCount++;
             _overlay.Update(_currentCount);
+            if (ShouldOverlayBeShown())
+            {
+                _overlay.Show();
+            }
+        }
+
+        private bool ShouldOverlayBeShown()
+        {
+            if (!_game.IsBattlegroundsMatch) return false;
+
+            var visibleCards = _game.Opponent.Board.Concat(_game.Player.Board).Concat(_game.Player.Hand);
+            bool hasExecutus = visibleCards.Any(entity => entity.Card.Name == "Majordomo Executus"); // Card_ID should be "BGS_105", in case name doesn't work out
+
+            return hasExecutus;
         }
 
         public void ResetCounter(ActivePlayer obj)
