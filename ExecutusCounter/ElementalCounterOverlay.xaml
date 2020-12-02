@@ -16,6 +16,6 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-            <Label>20</Label>
+            <Label Name="ElementalCountLabel">20</Label>
     </Grid>
 </UserControl>

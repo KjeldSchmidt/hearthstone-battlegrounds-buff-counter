@@ -23,5 +23,10 @@ namespace ExecutusCounter
         {
             Visibility = Visibility.Visible;
         }
+
+        public void Update(int count)
+        {
+            ElementalCountLabel.Content = count;
+        }
     }
 }
