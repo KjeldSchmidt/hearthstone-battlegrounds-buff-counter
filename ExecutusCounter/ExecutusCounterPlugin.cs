@@ -7,16 +7,18 @@ namespace ExecutusCounter
 {
     public class ExecutusCounterPlugin : IPlugin
     {
+        private ExecutusCounter _counter;
         private ElementalCounterOverlay _counterOverlay;
         public void OnLoad()
         {
             _counterOverlay = new ElementalCounterOverlay();
             Core.OverlayCanvas.Children.Add(_counterOverlay);
-            var counter = new ExecutusCounter(_counterOverlay);
-            GameEvents.OnGameStart.Add(counter.GameStart);
-            GameEvents.OnPlayerPlay.Add(counter.PlayerPlayed);
-            GameEvents.OnTurnStart.Add(counter.ResetCounter);
-            GameEvents.OnInMenu.Add(counter.InMenu);
+
+            _counter = new ExecutusCounter(_counterOverlay);
+            GameEvents.OnGameStart.Add(_counter.GameStart);
+            GameEvents.OnPlayerPlay.Add(_counter.PlayerPlayed);
+            GameEvents.OnTurnStart.Add(_counter.ResetCounter);
+            GameEvents.OnInMenu.Add(_counter.InMenu);
         }
 
         public void OnUnload()
@@ -31,7 +33,7 @@ namespace ExecutusCounter
 
         public void OnUpdate()
         {
-            
+            _counter.ShowOverlayIfNeeded();
         }
 
         public string Name => "Executus Elementals Counter";
@@ -40,7 +42,7 @@ namespace ExecutusCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.1.4");
+        public Version Version => new Version("0.2.1");
         public MenuItem MenuItem => null;
     }
 }

@@ -31,9 +31,20 @@ namespace ExecutusCounter
 
             _currentCount++;
             _overlay.Update(_currentCount);
+            ShowOverlayIfNeeded();
+        }
+
+        internal void ShowOverlayIfNeeded()
+        {
+            if (_game == null) return;
+            
             if (ShouldOverlayBeShown())
             {
                 _overlay.Show();
+            }
+            else
+            {
+                _overlay.Hide();
             }
         }
 
