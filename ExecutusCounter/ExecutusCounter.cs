@@ -20,7 +20,7 @@ namespace ExecutusCounter
 
         internal void GameStart()
         {
-            _currentCount = 0;
+            _currentCount = 1;
             _game = Hearthstone_Deck_Tracker.Core.Game;
             Log.Info("Game started");
         }
@@ -65,6 +65,11 @@ namespace ExecutusCounter
         }
 
         public void InMenu()
+        {
+            _overlay.Hide();
+        }
+
+        public void GameEnd()
         {
             _overlay.Hide();
         }

@@ -16,6 +16,7 @@ namespace ExecutusCounter
 
             _counter = new ExecutusCounter(_counterOverlay);
             GameEvents.OnGameStart.Add(_counter.GameStart);
+            GameEvents.OnGameEnd.Add(_counter.GameEnd);
             GameEvents.OnPlayerPlay.Add(_counter.PlayerPlayed);
             GameEvents.OnTurnStart.Add(_counter.ResetCounter);
             GameEvents.OnInMenu.Add(_counter.InMenu);
@@ -42,7 +43,7 @@ namespace ExecutusCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.2.1");
+        public Version Version => new Version("0.2.2");
         public MenuItem MenuItem => null;
     }
 }
