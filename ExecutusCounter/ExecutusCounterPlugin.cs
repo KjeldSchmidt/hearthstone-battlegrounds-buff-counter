@@ -43,7 +43,7 @@ namespace ExecutusCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.2.2");
+        public Version Version => new Version("0.2.3");
         public MenuItem MenuItem => null;
     }
 }

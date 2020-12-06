@@ -27,7 +27,7 @@ namespace ExecutusCounter
 
         internal void PlayerPlayed(Card card)
         {
-            if (card.Race != "Elemental") return;
+            if (card.Race != "Elemental" && card.Race != "All" ) return;
 
             _currentCount++;
             _overlay.Update(_currentCount);
