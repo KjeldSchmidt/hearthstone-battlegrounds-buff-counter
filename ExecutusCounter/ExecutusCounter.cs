@@ -50,6 +50,7 @@ namespace ExecutusCounter
 
         private bool ShouldOverlayBeShown()
         {
+            if (_game == null) return false;
             if (!_game.IsBattlegroundsMatch) return false;
 
             var visibleCards = _game.Opponent.Board.Concat(_game.Player.Board).Concat(_game.Player.Hand);
@@ -71,7 +72,7 @@ namespace ExecutusCounter
 
         public void GameEnd()
         {
-            _overlay.Hide();
+            _game = null;
         }
     }
 }
