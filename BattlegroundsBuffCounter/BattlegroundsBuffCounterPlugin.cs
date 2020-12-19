@@ -69,7 +69,7 @@ namespace BattlegroundsBuffCounter
             _counter.ShowOverlayIfNeeded();
         }
 
-        public string Name => "Executus Elementals Counter";
+        public string Name => "Battlegrounds Buff Counter";
         public string Description =>
             "Adds a counter to show how many elementals you've played this turn when Majodormo Executus is in the tavern, your hand or on your board";
 

@@ -54,7 +54,7 @@
           <DependentUpon>ElementalCounterOverlay.xaml</DependentUpon>
         </Compile>
         <Compile Include="ExecutusCounter.cs" />
-        <Compile Include="ExecutusCounterPlugin.cs" />
+        <Compile Include="BattlegroundsBuffCounterPlugin.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="ElementalCounterOverlay.xaml.cs">
             <DependentUpon>ElementalCounterOverlay.xaml</DependentUpon>
@@ -77,7 +77,4 @@
            Other similar extension points exist, see Microsoft.Common.targets.
       <Target Name="BeforeBuild">
       </Target> -->
-    <Target Name="AfterBuild">
-        <Copy SourceFiles="$(OutputPath)ExecutusCounter.dll" DestinationFolder="C:\Users\KjeldSchmidt\AppData\Roaming\HearthstoneDeckTracker\Plugins" />
-    </Target>
 </Project>

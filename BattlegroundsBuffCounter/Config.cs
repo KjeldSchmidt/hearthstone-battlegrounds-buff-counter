@@ -6,8 +6,8 @@ namespace BattlegroundsBuffCounter
     public class Config
     {
         private static readonly string ConfigFolderPath =
-            Hearthstone_Deck_Tracker.Config.AppDataPath + @"\Plugins\ExecutusCounter";
-        private static readonly string ConfigFilePath = ConfigFolderPath + @"\ExecutusCounter.config";
+            Hearthstone_Deck_Tracker.Config.AppDataPath + @"\Plugins\BattlegroundsBuffCounter";
+        private static readonly string ConfigFilePath = ConfigFolderPath + @"\BattlegroundsBuffCounter.config";
         public double ExecutusCounterTop = 0;
         public double ExecutusCounterLeft = 0;
 
