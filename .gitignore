@@ -3,3 +3,4 @@
 ExecutusCounter/bin/*
 ExecutusCounter/obj/*
 *.user
+packages/*
