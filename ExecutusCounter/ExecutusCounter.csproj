@@ -45,6 +45,9 @@
         <Reference Include="WindowsBase" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="ElementalCounterOverlay.xaml.Interaction.cs">
+          <DependentUpon>ElementalCounterOverlay.xaml</DependentUpon>
+        </Compile>
         <Compile Include="ExecutusCounter.cs" />
         <Compile Include="ExecutusCounterPlugin.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

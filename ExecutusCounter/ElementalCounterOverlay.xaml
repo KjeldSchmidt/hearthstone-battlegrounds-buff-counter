@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ExecutusCounter"
              mc:Ignorable="d" 
-             Height="100" Width="100">
+             Height="69" Width="100">
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="#3F3424"/>
@@ -17,8 +17,8 @@
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid MouseDown="OnMouseDown" MouseUp="OnMouseUp" MouseMove="OnMouseMove" MouseLeave="OnMouseLeave">
         <Image Width="100" Source="Images/icon-executus.png"></Image>
-        <TextBlock Name="ElementalCountLabel">20</TextBlock>
+        <TextBlock Name="ElementalCountLabel">0</TextBlock>
     </Grid>
 </UserControl>
