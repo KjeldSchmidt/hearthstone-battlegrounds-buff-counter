@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace ExecutusCounter
+namespace BattlegroundsBuffCounter
 {
     public partial class ElementalCounterOverlay : UserControl
     {

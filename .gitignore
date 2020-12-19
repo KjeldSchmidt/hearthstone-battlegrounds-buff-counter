@@ -1,6 +1,6 @@
 .idea/*
 *.cache
-ExecutusCounter/bin/*
-ExecutusCounter/obj/*
+BattlegroundsBuffCounter/bin/*
+BattlegroundsBuffCounter/obj/*
 *.user
 packages/*

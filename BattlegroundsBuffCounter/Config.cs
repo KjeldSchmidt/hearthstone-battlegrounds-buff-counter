@@ -1,7 +1,7 @@
 using System.IO;
 using Newtonsoft.Json;
 
-namespace ExecutusCounter
+namespace BattlegroundsBuffCounter
 {
     public class Config
     {

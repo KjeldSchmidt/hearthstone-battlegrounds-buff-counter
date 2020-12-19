@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Plugins;
 
-namespace ExecutusCounter
+namespace BattlegroundsBuffCounter
 {
     public class ExecutusCounterPlugin : IPlugin
     {

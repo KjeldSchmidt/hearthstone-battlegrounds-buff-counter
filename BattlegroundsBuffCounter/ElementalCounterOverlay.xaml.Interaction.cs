@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 
-namespace ExecutusCounter
+namespace BattlegroundsBuffCounter
 {
     public partial class ElementalCounterOverlay
     {

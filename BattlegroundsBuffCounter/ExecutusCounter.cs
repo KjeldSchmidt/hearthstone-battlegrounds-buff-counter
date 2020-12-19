@@ -5,7 +5,7 @@ using Hearthstone_Deck_Tracker.Enums;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Utility.Logging;
 
-namespace ExecutusCounter
+namespace BattlegroundsBuffCounter
 {
     public class ExecutusCounter
     {

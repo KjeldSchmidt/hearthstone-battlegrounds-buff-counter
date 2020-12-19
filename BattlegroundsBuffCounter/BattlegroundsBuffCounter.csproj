@@ -7,8 +7,8 @@
         <ProjectGuid>{05B18F1F-9F24-4565-9682-B6E5322FED09}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ExecutusCounter</RootNamespace>
-        <AssemblyName>ExecutusCounter</AssemblyName>
+        <RootNamespace>BattlegroundsBuffCounter</RootNamespace>
+        <AssemblyName>BattlegroundsBuffCounter</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
