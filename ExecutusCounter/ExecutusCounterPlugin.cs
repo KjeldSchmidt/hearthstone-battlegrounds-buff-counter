@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Plugins;
@@ -13,6 +16,11 @@ namespace ExecutusCounter
         {
             _counterOverlay = new ElementalCounterOverlay();
             Core.OverlayCanvas.Children.Add(_counterOverlay);
+
+            (Core.OverlayWindow.GetType()
+                .GetField("_clickableElements", BindingFlags.NonPublic | BindingFlags.Instance)
+                ?.GetValue(Core.OverlayWindow) as List<FrameworkElement>)
+                ?.Add(_counterOverlay);
 
             _counter = new ExecutusCounter(_counterOverlay);
             GameEvents.OnGameStart.Add(_counter.GameStart);
@@ -43,7 +51,7 @@ namespace ExecutusCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.2.4");
+        public Version Version => new Version("0.3.0");
         public MenuItem MenuItem => null;
     }
 }

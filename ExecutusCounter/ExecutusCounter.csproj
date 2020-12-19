@@ -59,7 +59,7 @@
         </Page>
     </ItemGroup>
     <ItemGroup>
-        <Resource Include="Images\icon-executus.png"/>
+        <Resource Include="Images\icon-executus.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
