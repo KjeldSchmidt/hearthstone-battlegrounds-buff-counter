@@ -4,7 +4,7 @@ It adds an overlay in the Hearthstone Battelgrounds Mode that helps you count bu
 
 # What do I need?
 
-This is a plugin for the [Hearthstone Deck Tracker](https://github.com/HearthSim/Hearthstone-Deck-Tracker), so you will need to install it and have it running during gameplay. You'll also have to download the latest release .dll from thsi repository and add it into your plugins folder.
+This is a plugin for the [Hearthstone Deck Tracker](https://github.com/HearthSim/Hearthstone-Deck-Tracker), so you will need to install it and have it running during gameplay. You'll also have to download the latest release from here and add it into your plugins folder.
 
 # How do I install this?
 
