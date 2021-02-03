@@ -1,11 +1,9 @@
-using System.Diagnostics;
 using System.Linq;
-using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Utility.Logging;
 
-namespace BattlegroundsBuffCounter
+namespace BattlegroundsBuffCounter.Counters
 {
     public class ExecutusCounter : Counter
     {

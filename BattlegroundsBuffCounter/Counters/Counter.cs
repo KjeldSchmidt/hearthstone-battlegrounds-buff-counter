@@ -1,6 +1,6 @@
 using Hearthstone_Deck_Tracker.Hearthstone;
 
-namespace BattlegroundsBuffCounter
+namespace BattlegroundsBuffCounter.Counters
 {
     public abstract class Counter
     {
