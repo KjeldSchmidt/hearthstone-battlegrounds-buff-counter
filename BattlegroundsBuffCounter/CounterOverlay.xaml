@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="BattlegroundsBuffCounter.ElementalCounterOverlay"
+﻿<UserControl x:Class="BattlegroundsBuffCounter.CounterOverlay"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -18,7 +18,7 @@
         </Style>
     </UserControl.Resources>
     <Grid MouseDown="OnMouseDown" MouseUp="OnMouseUp" MouseMove="OnMouseMove" MouseLeave="OnMouseLeave">
-        <Image Width="100" Source="Images/icon-executus.png"></Image>
-        <TextBlock Name="ElementalCountLabel">0</TextBlock>
+        <Image Name="BuffImage" Width="100"></Image>
+        <TextBlock Name="CountLabel">0</TextBlock>
     </Grid>
 </UserControl>

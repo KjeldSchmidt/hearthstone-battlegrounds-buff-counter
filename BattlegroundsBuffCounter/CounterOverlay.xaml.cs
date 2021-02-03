@@ -1,14 +1,19 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace BattlegroundsBuffCounter
 {
-    public partial class ElementalCounterOverlay : UserControl
+    public partial class CounterOverlay : UserControl
     {
-        public ElementalCounterOverlay()
+        
+        public CounterOverlay(Uri imageUri)
         {
             InitializeComponent();
             Hide();
+            BuffImage.Source = new BitmapImage(imageUri);
         }
 
         public void Hide()
@@ -23,7 +28,7 @@ namespace BattlegroundsBuffCounter
 
         public void Update(int count)
         {
-            ElementalCountLabel.Text = count.ToString();
+            CountLabel.Text = count.ToString();
         }
     }
 }

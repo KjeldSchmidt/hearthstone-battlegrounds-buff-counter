@@ -11,9 +11,9 @@ namespace BattlegroundsBuffCounter
     {
         private int _currentCount;
         private GameV2 _game;
-        private ElementalCounterOverlay _overlay;
+        private CounterOverlay _overlay;
 
-        public ExecutusCounter(ElementalCounterOverlay overlay)
+        public ExecutusCounter(CounterOverlay overlay)
         {
             _overlay = overlay;
         }
@@ -36,6 +36,7 @@ namespace BattlegroundsBuffCounter
 
         internal void ShowOverlayIfNeeded()
         {
+            _overlay.Show(); return;
             if (_game == null) return;
             
             if (ShouldOverlayBeShown())
@@ -46,6 +47,7 @@ namespace BattlegroundsBuffCounter
             {
                 _overlay.Hide();
             }
+
         }
 
         private bool ShouldOverlayBeShown()

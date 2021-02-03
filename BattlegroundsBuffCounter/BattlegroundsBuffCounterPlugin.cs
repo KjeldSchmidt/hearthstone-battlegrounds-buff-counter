@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Plugins;
 
@@ -11,23 +12,13 @@ namespace BattlegroundsBuffCounter
     public class ExecutusCounterPlugin : IPlugin
     {
         private ExecutusCounter _counter;
-        private ElementalCounterOverlay _counterOverlay;
+        private CounterOverlay _counterOverlay;
         private Config _config;
         
         public void OnLoad()
         {
-            _counterOverlay = new ElementalCounterOverlay();
-            Core.OverlayCanvas.Children.Add(_counterOverlay);
+            CreateOverlays();
 
-            // The overlay will not receive mouse events unless it is added to `_clickableElements`.
-            // This is not currently supported via the api, so reflection is needed.
-            // This was recommended by the developers on the discord.
-            (Core.OverlayWindow.GetType()
-                    .GetField("_clickableElements", BindingFlags.NonPublic | BindingFlags.Instance)
-                    ?.GetValue(Core.OverlayWindow) as List<FrameworkElement>)
-                ?.Add(_counterOverlay);
-            
-            
             _config = Config.Load();
             ApplyConfig();
 
@@ -40,6 +31,20 @@ namespace BattlegroundsBuffCounter
             GameEvents.OnInMenu.Add(_counter.InMenu);
         }
 
+        private void CreateOverlays()
+        {
+            _counterOverlay = new CounterOverlay( new Uri(@"images\icon-executus.png", UriKind.Relative) );
+            Core.OverlayCanvas.Children.Add(_counterOverlay);
+
+            // The overlay will not receive mouse events unless it is added to `_clickableElements`.
+            // This is not currently supported via the api, so reflection is needed.
+            // This was recommended by the developers on the discord.
+            (Core.OverlayWindow.GetType()
+                    .GetField("_clickableElements", BindingFlags.NonPublic | BindingFlags.Instance)
+                    ?.GetValue(Core.OverlayWindow) as List<FrameworkElement>)
+                ?.Add(_counterOverlay);
+        }
+        
         private void ApplyConfig()
         {
             Canvas.SetTop(_counterOverlay, _config.ExecutusCounterTop);
@@ -75,7 +80,7 @@ namespace BattlegroundsBuffCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.3.7");
+        public Version Version => new Version("0.3.8");
         public MenuItem MenuItem => null;
     }
 }

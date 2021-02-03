@@ -5,7 +5,7 @@ using Core = Hearthstone_Deck_Tracker.API.Core;
 
 namespace BattlegroundsBuffCounter
 {
-    public partial class ElementalCounterOverlay
+    public partial class CounterOverlay
     {
         private bool _dragInProgress;
         private Point _offset;
