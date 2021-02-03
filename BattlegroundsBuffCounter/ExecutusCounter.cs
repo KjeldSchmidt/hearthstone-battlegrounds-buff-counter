@@ -7,21 +7,12 @@ using Hearthstone_Deck_Tracker.Utility.Logging;
 
 namespace BattlegroundsBuffCounter
 {
-    public class ExecutusCounter
+    public class ExecutusCounter : Counter
     {
-        private int _currentCount;
-        private GameV2 _game;
-        private CounterOverlay _overlay;
-
-        public ExecutusCounter(CounterOverlay overlay)
+        internal override void GameStart()
         {
-            _overlay = overlay;
-        }
-
-        internal void GameStart()
-        {
-            _currentCount = 1;
-            _game = Hearthstone_Deck_Tracker.Core.Game;
+            CurrentCount = 1;
+            Game = Hearthstone_Deck_Tracker.Core.Game;
             Log.Info("Game started");
         }
 
@@ -29,33 +20,17 @@ namespace BattlegroundsBuffCounter
         {
             if (card.Race != "Elemental" && card.Race != "All" ) return;
 
-            _currentCount++;
-            _overlay.Update(_currentCount);
+            CurrentCount++;
+            Overlay.Update(CurrentCount);
             ShowOverlayIfNeeded();
         }
 
-        internal void ShowOverlayIfNeeded()
+        protected override bool ShouldOverlayBeShown()
         {
-            _overlay.Show(); return;
-            if (_game == null) return;
-            
-            if (ShouldOverlayBeShown())
-            {
-                _overlay.Show();
-            }
-            else
-            {
-                _overlay.Hide();
-            }
+            if (Game == null) return false;
+            if (!Game.IsBattlegroundsMatch) return false;
 
-        }
-
-        private bool ShouldOverlayBeShown()
-        {
-            if (_game == null) return false;
-            if (!_game.IsBattlegroundsMatch) return false;
-
-            var visibleCards = _game.Opponent.Board.Concat(_game.Player.Board).Concat(_game.Player.Hand);
+            var visibleCards = Game.Opponent.Board.Concat(Game.Player.Board).Concat(Game.Player.Hand);
             bool hasExecutus = visibleCards.Any(entity => entity.Card.Name == "Majordomo Executus"); // Card_ID should be "BGS_105", in case name doesn't work out
 
             return hasExecutus;
@@ -63,18 +38,13 @@ namespace BattlegroundsBuffCounter
 
         public void ResetCounter(ActivePlayer obj)
         {
-            _currentCount = 1;
-            _overlay.Update(_currentCount);
+            CurrentCount = 1;
+            Overlay.Update(CurrentCount);
         }
 
-        public void InMenu()
+        public ExecutusCounter(CounterOverlay overlay) : base(overlay)
         {
-            _overlay.Hide();
-        }
-
-        public void GameEnd()
-        {
-            _game = null;
+            
         }
     }
 }

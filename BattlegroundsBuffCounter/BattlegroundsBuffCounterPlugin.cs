@@ -11,10 +11,14 @@ namespace BattlegroundsBuffCounter
 {
     public class ExecutusCounterPlugin : IPlugin
     {
-        private ExecutusCounter _counter;
-        private CounterOverlay _counterOverlay;
-        private Config _config;
+        private ExecutusCounter _executusCounter;
+
+        private CounterOverlay _elementalsOverlay;
+        private CounterOverlay _strongarmOverlay;
+        private CounterOverlay _cleefOverlay;
         
+        private Config _config;
+
         public void OnLoad()
         {
             CreateOverlays();
@@ -22,45 +26,55 @@ namespace BattlegroundsBuffCounter
             _config = Config.Load();
             ApplyConfig();
 
-            _counter = new ExecutusCounter(_counterOverlay);
+            _executusCounter = new ExecutusCounter(_elementalsOverlay);
             
-            GameEvents.OnGameStart.Add(_counter.GameStart);
-            GameEvents.OnGameEnd.Add(_counter.GameEnd);
-            GameEvents.OnPlayerPlay.Add(_counter.PlayerPlayed);
-            GameEvents.OnTurnStart.Add(_counter.ResetCounter);
-            GameEvents.OnInMenu.Add(_counter.InMenu);
+            GameEvents.OnGameStart.Add(_executusCounter.GameStart);
+            GameEvents.OnGameEnd.Add(_executusCounter.GameEnd);
+            GameEvents.OnPlayerPlay.Add(_executusCounter.PlayerPlayed);
+            GameEvents.OnTurnStart.Add(_executusCounter.ResetCounter);
+            GameEvents.OnInMenu.Add(_executusCounter.InMenu);
         }
 
         private void CreateOverlays()
         {
-            _counterOverlay = new CounterOverlay( new Uri(@"images\icon-executus.png", UriKind.Relative) );
-            Core.OverlayCanvas.Children.Add(_counterOverlay);
+            _elementalsOverlay = new CounterOverlay(new Uri(@"images\icon-executus.png", UriKind.Relative));
+            _strongarmOverlay = new CounterOverlay(new Uri(@"images\icon-executus.png", UriKind.Relative));
+            _cleefOverlay = new CounterOverlay(new Uri(@"images\icon-executus.png", UriKind.Relative));
+            
+            ShowAndMakeClickable(_elementalsOverlay);
+            ShowAndMakeClickable(_strongarmOverlay);
+            ShowAndMakeClickable(_cleefOverlay);
+        }
 
+        private void ShowAndMakeClickable(CounterOverlay counterOverlay)
+        {
+            Core.OverlayCanvas.Children.Add(counterOverlay);
+            
             // The overlay will not receive mouse events unless it is added to `_clickableElements`.
             // This is not currently supported via the api, so reflection is needed.
             // This was recommended by the developers on the discord.
             (Core.OverlayWindow.GetType()
                     .GetField("_clickableElements", BindingFlags.NonPublic | BindingFlags.Instance)
                     ?.GetValue(Core.OverlayWindow) as List<FrameworkElement>)
-                ?.Add(_counterOverlay);
+                ?.Add(counterOverlay);   
         }
         
         private void ApplyConfig()
         {
-            Canvas.SetTop(_counterOverlay, _config.ExecutusCounterTop);
-            Canvas.SetLeft(_counterOverlay, _config.ExecutusCounterLeft);
+            Canvas.SetTop(_elementalsOverlay, _config.ExecutusCounterTop);
+            Canvas.SetLeft(_elementalsOverlay, _config.ExecutusCounterLeft);
         }
 
         public void OnUnload()
         {
             WriteConfig();
-            Core.OverlayCanvas.Children.Remove(_counterOverlay);
+            Core.OverlayCanvas.Children.Remove(_elementalsOverlay);
         }
 
         private void WriteConfig()
         {
-            _config.ExecutusCounterTop = Canvas.GetTop(_counterOverlay);
-            _config.ExecutusCounterLeft = Canvas.GetLeft(_counterOverlay);
+            _config.ExecutusCounterTop = Canvas.GetTop(_elementalsOverlay);
+            _config.ExecutusCounterLeft = Canvas.GetLeft(_elementalsOverlay);
             _config.Save();
         }
 
@@ -71,7 +85,7 @@ namespace BattlegroundsBuffCounter
 
         public void OnUpdate()
         {
-            _counter.ShowOverlayIfNeeded();
+            _executusCounter.ShowOverlayIfNeeded();
         }
 
         public string Name => "Battlegrounds Buff Counter";
@@ -80,7 +94,7 @@ namespace BattlegroundsBuffCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.3.8");
+        public Version Version => new Version("0.3.9");
         public MenuItem MenuItem => null;
     }
 }

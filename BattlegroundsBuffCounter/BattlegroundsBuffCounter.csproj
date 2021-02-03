@@ -50,6 +50,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Config.cs" />
+        <Compile Include="Counter.cs" />
         <Compile Include="CounterOverlay.xaml.Interaction.cs">
           <DependentUpon>CounterOverlay.xaml</DependentUpon>
         </Compile>
@@ -71,6 +72,9 @@
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Counters" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
