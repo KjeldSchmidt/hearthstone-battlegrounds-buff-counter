@@ -13,10 +13,14 @@ namespace BattlegroundsBuffCounter.Counters
             Overlay = overlay;
         }
 
-        internal abstract void GameStart();
+        internal void GameStart()
+        {
+            Game = Hearthstone_Deck_Tracker.Core.Game;
+        }
 
         internal void ShowOverlayIfNeeded()
         {
+            ShouldOverlayBeShown();
             Overlay.Show(); return;
             if (Game == null) return;
             

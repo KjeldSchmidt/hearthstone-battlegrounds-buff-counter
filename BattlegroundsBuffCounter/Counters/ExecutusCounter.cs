@@ -7,17 +7,10 @@ namespace BattlegroundsBuffCounter.Counters
 {
     public class ExecutusCounter : Counter
     {
-        internal override void GameStart()
-        {
-            CurrentCount = 1;
-            Game = Hearthstone_Deck_Tracker.Core.Game;
-            Log.Info("Game started");
-        }
-
         internal void PlayerPlayed(Card card)
         {
             if (card.Race != "Elemental" && card.Race != "All" ) return;
-
+            
             CurrentCount++;
             Overlay.Update(CurrentCount);
             ShowOverlayIfNeeded();

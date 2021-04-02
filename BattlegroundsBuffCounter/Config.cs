@@ -10,6 +10,8 @@ namespace BattlegroundsBuffCounter
         private static readonly string ConfigFilePath = ConfigFolderPath + @"\BattlegroundsBuffCounter.config";
         public double ExecutusCounterTop = 0;
         public double ExecutusCounterLeft = 0;
+        public double CleefCounterTop = 0;
+        public double CleefCounterLeft = 0;
 
         public void Save()
         {

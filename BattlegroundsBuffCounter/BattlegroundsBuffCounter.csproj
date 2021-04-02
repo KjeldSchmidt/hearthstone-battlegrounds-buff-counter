@@ -53,9 +53,11 @@
         <Compile Include="CounterOverlay.xaml.Interaction.cs">
           <DependentUpon>CounterOverlay.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Counters\CleefCounter.cs" />
         <Compile Include="Counters\Counter.cs" />
         <Compile Include="BattlegroundsBuffCounterPlugin.cs" />
         <Compile Include="Counters\ExecutusCounter.cs" />
+        <Compile Include="Counters\StrongarmCounter.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="CounterOverlay.xaml.cs">
             <DependentUpon>CounterOverlay.xaml</DependentUpon>
@@ -69,6 +71,9 @@
     </ItemGroup>
     <ItemGroup>
         <Resource Include="Images\icon-executus.png" />
+        <Resource Include="Images\icon-van-cleef.png" />
+        <Resource Include="Images\icon-strongarm.png" />
+        
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
