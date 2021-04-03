@@ -28,10 +28,10 @@ namespace BattlegroundsBuffCounter.Counters
         {
             if (Game == null) return false;
             if (!Game.IsBattlegroundsMatch) return false;
-
-            var playerClass = Game.Player.Class;
-
-            return playerClass == "Edwin VanCleef";
+            
+            // Todo: Figure out a way to see if the current hero is VanCleef, or better yet, whether the current heropower is relevant (For Finley)
+            
+            return true;
         }
     }
 }

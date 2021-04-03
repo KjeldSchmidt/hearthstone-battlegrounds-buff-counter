@@ -20,8 +20,6 @@ namespace BattlegroundsBuffCounter.Counters
 
         internal void ShowOverlayIfNeeded()
         {
-            ShouldOverlayBeShown();
-            Overlay.Show(); return;
             if (Game == null) return;
             
             if (ShouldOverlayBeShown())
