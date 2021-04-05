@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using Hearthstone_Deck_Tracker.Controls;
 using Hearthstone_Deck_Tracker.Enums;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Utility.Logging;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
 
@@ -26,12 +28,8 @@ namespace BattlegroundsBuffCounter.Counters
         
         protected override bool ShouldOverlayBeShown()
         {
-            if (Game == null) return false;
             if (!Game.IsBattlegroundsMatch) return false;
-            
-            // Todo: Figure out a way to see if the current hero is VanCleef, or better yet, whether the current heropower is relevant (For Finley)
-            
-            return true;
+            return Game.Player.PlayerEntities.Any(entity => entity.CardId == "TB_BaconShop_HP_001");
         }
     }
 }

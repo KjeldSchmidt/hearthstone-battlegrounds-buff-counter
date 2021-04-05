@@ -107,7 +107,7 @@ namespace BattlegroundsBuffCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.4.1");
+        public Version Version => new Version("0.4.2");
         public MenuItem MenuItem => null;
     }
 }
