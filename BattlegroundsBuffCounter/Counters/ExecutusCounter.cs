@@ -18,7 +18,6 @@ namespace BattlegroundsBuffCounter.Counters
 
         protected override bool ShouldOverlayBeShown()
         {
-            if (Game == null) return false;
             if (!Game.IsBattlegroundsMatch) return false;
 
             var visibleCards = Game.Opponent.Board.Concat(Game.Player.Board).Concat(Game.Player.Hand);

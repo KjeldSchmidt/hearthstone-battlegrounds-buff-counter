@@ -13,6 +13,7 @@ namespace BattlegroundsBuffCounter
     {
         private ExecutusCounter _executusCounter;
         private CleefCounter _cleefCounter;
+        private StrongarmCounter _strongarmCounter;
 
         private CounterOverlay _elementalsOverlay;
         private CounterOverlay _strongarmOverlay;
@@ -29,6 +30,7 @@ namespace BattlegroundsBuffCounter
 
             _executusCounter = new ExecutusCounter(_elementalsOverlay);
             _cleefCounter = new CleefCounter(_cleefOverlay);
+            _strongarmCounter = new StrongarmCounter(_strongarmOverlay);
 
             GameEvents.OnGameStart.Add(_executusCounter.GameStart);
             GameEvents.OnGameEnd.Add(_executusCounter.GameEnd);
@@ -41,6 +43,12 @@ namespace BattlegroundsBuffCounter
             GameEvents.OnInMenu.Add(_cleefCounter.InMenu);
             GameEvents.OnTurnStart.Add(_cleefCounter.ResetCounter);
             GameEvents.OnPlayerPlayToHand.Add(_cleefCounter.PlayToHand);
+            
+            GameEvents.OnGameStart.Add(_strongarmCounter.GameStart);
+            GameEvents.OnGameEnd.Add(_strongarmCounter.GameEnd);
+            GameEvents.OnPlayerPlayToHand.Add(_strongarmCounter.PlayToHand);
+            GameEvents.OnTurnStart.Add(_strongarmCounter.ResetCounter);
+            GameEvents.OnInMenu.Add(_strongarmCounter.InMenu);
         }
 
         private void CreateOverlays()
@@ -73,6 +81,8 @@ namespace BattlegroundsBuffCounter
             Canvas.SetLeft(_elementalsOverlay, _config.ExecutusCounterLeft);
             Canvas.SetTop(_cleefOverlay, _config.CleefCounterTop);
             Canvas.SetLeft(_cleefOverlay, _config.CleefCounterLeft);
+            Canvas.SetTop(_strongarmOverlay, _config.StrongarmCounterTop);
+            Canvas.SetLeft(_strongarmOverlay, _config.StrongarmCounterLeft);
         }
 
         public void OnUnload()
@@ -87,6 +97,8 @@ namespace BattlegroundsBuffCounter
             _config.ExecutusCounterLeft = Canvas.GetLeft(_elementalsOverlay);
             _config.CleefCounterTop = Canvas.GetTop(_cleefOverlay);
             _config.CleefCounterLeft = Canvas.GetLeft(_cleefOverlay);
+            _config.StrongarmCounterTop = Canvas.GetTop(_strongarmOverlay);
+            _config.StrongarmCounterLeft = Canvas.GetLeft(_strongarmOverlay);
             _config.Save();
         }
 
@@ -99,6 +111,7 @@ namespace BattlegroundsBuffCounter
         {
             _executusCounter.ShowOverlayIfNeeded();
             _cleefCounter.ShowOverlayIfNeeded();
+            _strongarmCounter.ShowOverlayIfNeeded();
         }
 
         public string Name => "Battlegrounds Buff Counter";
@@ -107,7 +120,7 @@ namespace BattlegroundsBuffCounter
 
         public string ButtonText => "Settings";
         public string Author => "Kjeld Schmidt";
-        public Version Version => new Version("0.4.2");
+        public Version Version => new Version("0.5.1");
         public MenuItem MenuItem => null;
     }
 }

@@ -12,6 +12,8 @@ namespace BattlegroundsBuffCounter
         public double ExecutusCounterLeft = 0;
         public double CleefCounterTop = 0;
         public double CleefCounterLeft = 0;
+        public double StrongarmCounterTop = 0;
+        public double StrongarmCounterLeft = 0;
 
         public void Save()
         {
